@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light bg-danger w-100" style="padding: 8px 56px; margin-bottom: 48px; color: white">
+  <a class="navbar-brand"><%=@task.title%></a>
+  <%= link_to 'Edit', edit_task_path, class: "btn btn-outline-light" %>
+</nav>
+<div class="jumbotron" style="border-bottom: .5px solid lightgrey; padding-bottom: 56px; margin: 0px 24px; width: auto">
+  <blockquote class="blockquote">
+    <p class="text-left" style="padding-left: 10px"><%= @task.details%> </p>
+  <blockquote>
+</div>
+<div class="form-check"  style="border-bottom: .5px solid lightgrey; padding: 48px 24px; margin: 0px 24px; width: auto">
+  <div style="padding: 10px">
+  <%= check_box_tag @task[:completed], @task.completed == true ? 1:0, @task.completed, :disabled => true %>
+  <label class="form-check-label" for="defaultCheck1">
+    This task has been completed
+  </label>
+  </div>
+</div>
+<div class="form-check"  style=" padding: 48px 32px; margin: 0px 24px; width: auto">
+ <%= link_to'Back to task list', tasks_path, class: "btn btn-outline-danger" %>
+</div>

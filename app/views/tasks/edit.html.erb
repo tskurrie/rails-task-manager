@@ -1,0 +1,29 @@
+<nav class="navbar navbar-light bg-danger w-100" style="padding: 8px 56px; margin-bottom: 48px; color: white">
+  <a class="navbar-brand"><%=@task.title%></a>
+  <%= link_to 'Back to task list', tasks_path, class: "btn btn-outline-light" %>
+</nav>
+
+<div class="form-group" style="padding: 0px 48px; margin: 0px 24px; width: auto">
+  <%= form_for @task do |f| %>
+    <div class="form-group">
+      <%= f.label :title, class: "control-label" %>
+      <%= f.text_field :title, class: "form-control", placeholder: 'Enter Title' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :details, class: "control-label" %>
+      <%= f.text_field :details, class: "form-control", placeholder: 'Enter Details'%>
+    </div>
+    <div class="form-group"  style="border-bottom: .5px solid lightgrey; padding: 48px 0px; margin: 0px 0px; width: auto">
+      <%= f.check_box (:completed) %>
+      <label class="form-check-label" for="defaultCheck1">
+        This task has been completed
+      </label>
+    </div>
+    <div class="form-group" style="border-bottom: .5px solid lightgrey; padding: 48px 0px; margin: 0px 0px; width: auto">
+      <%= f.submit "Save Changes", class: "btn btn-danger btn-lg" %>
+    </div>
+    
+  <% end %>
+  
+</div>
+

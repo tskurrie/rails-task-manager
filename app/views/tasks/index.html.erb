@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-danger w-100" style="margin-bottom: 48px; padding: 8px 56px; color: white">
+  <a class="navbar-brand">My Task List</a>
+  
+</nav>
+<%= form_with do %>
+<% @tasks.each do |task|%>
+<div class="input-group mb-3" style="margin: 0px 54px; width:60%">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+      <%= check_box_tag :completed, task.completed, task.completed, :disabled => true %>
+    </div>
+  </div>
+  <div class="input-group-prepend">
+    <div class="input-group-text" id='trashcontainer'>
+      <%= link_to '', task_path(task), method: :delete, class: "far fa-trash-alt", id: "trash"%>
+    </div>
+  </div>
+  <div class="form-control">
+    <%= link_to task.title, task_path(task) %>
+  </div>
+
+</div>
+<% end %>
+
+<div style="border-bottom: .5px solid lightgrey; padding: 16px 16px; margin: 0px 32px; width: auto">
+</div>
+<div style="border-bottom: .5px solid lightgrey; box-contents: border-box; padding: 56px 28px; margin: 0px 32px; width: auto">
+<%= link_to 'New Task', new_task_path, class: "btn btn-outline-danger" %>
+</div>
+<% end %>
